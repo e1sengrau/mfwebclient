@@ -13,7 +13,7 @@
 
       <!-- content -->
       <div class="left-item">
-        <div class="text-h3 text-bold q-px-xl" style="width: 75%">Care that moves at your pace</div>
+        <div class="text-h3 text-bold q-px-xl" style="width: 70%">Care that moves at your pace</div>
 
         <div class="text-body1 q-px-xl q-pt-lg" style="width: 85%">
           Submit prescription requests, track their status, and hear back from a licensed
