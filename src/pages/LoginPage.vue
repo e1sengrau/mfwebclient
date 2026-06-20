@@ -5,6 +5,7 @@
   />
 
   <div class="row">
+    <!-- brand panel -->
     <div class="col-6 brand-panel" style="height: 100vh">
       <!-- title -->
       <div class="left-item q-px-xl">
@@ -38,11 +39,70 @@
       </div>
     </div>
 
-    <div class="col-6" style="height: 100vh">right</div>
+    <!-- form panel -->
+    <div class="col-6 column flex-center" style="height: 100vh; background-color: #edede8">
+      <div class="contents" style="width: 400px; margin-left: -20%">
+        <div class="text-h6 text-black">Welcome back</div>
+        <div class="text-body2 text-grey-8 q-mt-sm">Sign in to manage your requests</div>
+
+        <div class="column q-mt-lg">
+          <div class="text-body2 text-bold text-grey-8">Email</div>
+          <q-input
+            class="q-mt-sm custom-input"
+            dense
+            style="background-color: white"
+            color="teal-9"
+            filled
+            v-model="email"
+            placeholder="mjordan@nba.com"
+          ></q-input>
+          <div class="text-body2 text-bold text-grey-8 q-mt-md">Password</div>
+          <q-input
+            dense
+            class="q-mt-sm custom-input"
+            color="teal-9"
+            style="background-color: white"
+            filled
+            v-model="password"
+            placeholder="******"
+            type="password"
+          ></q-input>
+          <div class="row">
+            <q-space></q-space>
+            <span class="text-bold cursor-pointer q-my-md text-teal-9">Forgot password?</span>
+          </div>
+          <q-btn
+            class="q-py-md bg-teal-9"
+            style="border-radius: 15px"
+            label="Sign in"
+            no-caps
+            :disable="!valid"
+            @click="login"
+          ></q-btn>
+        </div>
+
+        <div class="text-center q-mt-md">
+          <div class="text-grey-9">
+            New to MediFlow?
+            <span class="text-bold cursor-pointer text-teal-9">Create an account</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { computed, ref } from 'vue'
+
+const email = ref(null)
+const password = ref(null)
+
+const valid = computed(() => {
+  if (!email.value || !password.value) return false
+  return true
+})
+</script>
 
 <style scoped>
 * {
@@ -90,11 +150,17 @@
 
 .chip {
   background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.473);
 }
 
 .text-h3,
 .text-h6 {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 800;
+}
+
+.custom-input {
+  border: 2px solid rgba(0, 0, 0, 0.24);
+  border-radius: 6px;
 }
 </style>
